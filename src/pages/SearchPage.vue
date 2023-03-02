@@ -48,10 +48,10 @@ const originTagList = [{
     children: [
       {text: '大一', id: '大一'},
       {text: '大二', id: '大二'},
-      {text: '大3', id: '大3'},
-      {text: '大4', id: '大4'},
-      {text: '大5', id: '大5aaaaaaa'},
-      {text: '大6', id: '大6aaaaaaa'},
+      {text: '大三', id: '大3'},
+      {text: '大四', id: '大4'},
+      // {text: '大5', id: '大5aaaaaaa'},
+      // {text: '大6', id: '大6aaaaaaa'},
     ],
   },
 ]
@@ -63,7 +63,7 @@ let tagList = ref(originTagList);
  * 搜索过滤
  * @param val
  */
-const onSearch = (val) => {
+const onSearch = (val: any) => {
   tagList.value = originTagList.map(parentTag => {
     const tempChildren = [...parentTag.children];
     const tempParentTag = {...parentTag};
@@ -82,7 +82,7 @@ const activeIds = ref([]);
 const activeIndex = ref(0);
 
 // 移除标签
-const doClose = (tag) => {
+const doClose = (tag: any) => {
   activeIds.value = activeIds.value.filter(item => {
     return item !== tag;
   })
